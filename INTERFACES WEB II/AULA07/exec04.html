@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script>
+		//for
+		let forpares = 0;
+		let forimpares = 0;
+		let fornumero;
+
+		for (fornumero = prompt("Digite um número:");
+			fornumero != 0;
+			fornumero = prompt("Digite outro número:")) {
+			
+			if (fornumero % 2 == 0) {
+				forpares++
+			}
+			else{
+				forimpares++
+			}
+		}
+console.log("quantidade de pares:"+forpares);
+console.log("quantidade de impares:"+forimpares);
+
+
+
+		//while
+	
+		let whilepares = 0;
+		let whileimpares = 0;
+		let whilenumero = prompt("Digite um número:");
+
+		while(whilenumero != 0){
+
+			if (whilenumero % 2 == 0) {
+				whilepares++
+			}else{
+				whileimpares++
+			}
+		
+
+		whilenumero = prompt("Digite outro número:");
+
+}
+
+console.log("quantidade de pares:"+whilepares);
+console.log("quantidade de impares:"+whileimpares);
+
+
+		//Do While
+
+		let dowhilepares = 0;
+		let dowhileimpares = 0;
+		let dowhilenumero;
+
+
+		do{
+
+			dowhilenumero = prompt("Digite um número:");
+		
+
+		if(dowhilenumero != 0){
+
+			if (dowhilenumero % 2 == 0) {
+				dowhilepares++
+			}else{
+				dowhileimpares++
+			}
+		}
+
+}while(dowhilenumero != 0);
+
+console.log("quantidade de pares:"+dowhilepares);
+console.log("quantidade de impares:"+dowhileimpares);
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXERCICIO</title>
+    <style type="text/css">
+       .container {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: flex-start; /* Move para cima */
+        min-height: 70vh; /* Altura total da viewport */
+        padding-top: 20px; /* Espaço superior opcional */
+        margin-top: -20px;
+        }
+
+        .botoes{
+            display: flex;              
+            justify-content: center;    
+            align-items: center;        
+            flex-wrap: wrap;            
+            gap: 10px;
+            margin-top: -220px;  
+        }
+
+        .menu{
+            text-align: center;
+            font-family: serif;
+            margin-top: -50px;
+        }
+
+        body {
+            background-image: url(imagens/6604053.png)
+        }
+
+    </style>
+</head>
+<body > 
+    <div class="menu">
+        <img src="imagens/Pokemon-Logo.png  " width="300">
+        <h1>PIKACHU USE!</h1>
+    </div>
+
+    <center>
+        
+        <img src="imagens/mew-pokemon.gif" width="100px">
+        <img src="imagens/mewtwo-sprite.gif" width="90px">
+    </center>
+
+    <div class="container">
+        <img src="imagens/61-pikachu-game-usagif.gif" style="width: 400px;" id="pikachu">
+    </div>
+    <div class="botoes">
+    <button onclick="document.getElementById('pikachu').src = 'imagens/56-pikachu-pixel-usagif.gif'">
+        <img src="imagens/56-pikachu-pixel-usagif.gif" width="100">
+        <p>DOUBLE KICK!</p>
+    </button>
+
+    <button onclick="document.getElementById('pikachu').src = 'imagens/59-pikachu-pixel-usagif.gif'">
+        <img src="imagens/59-pikachu-pixel-usagif.gif" width="100">
+        <p>FLY!</p>
+    </button>
+
+    <button onclick="document.getElementById('pikachu').src = 'imagens/pikachu-surf.gif'">
+        <img src="imagens/pikachu-surf.gif" width="116">
+        <p>SURF!</p>
+    </button>
+
+    <button onclick="document.getElementById('pikachu').src = 'imagens/surprised-pikachu.gif'">
+        <img src="imagens/surprised-pikachu.gif" width="90">
+        <p>?!</p>
+    </button>
+
+      <button onclick="document.getElementById('pikachu').src = 'imagens/correndo.gif'">
+        <img src="imagens/correndo.gif" width="120">
+        <p>ATAQUE RAPIDO!</p>
+    </button>
+
+    <button onclick="document.getElementById('pikachu').src = 'imagens/redpikachu.gif'">
+        <img src="imagens/redpikachu.gif" width="180">
+        <p>LET'S GO!</p>
+    </button>
+    </div>
+    <!--<img src="imagens/pokemon-running.gif" width="100%">!-->
+</body>
+</html>

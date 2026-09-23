@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cadastro de pessoa</title>
+</head>
+<body>
+
+	<h1>CADASTRO DE PESSOA</h1>
+	<p>Campos marcados com * são obrigatórios!</p>
+
+	<form action="pessoa_2infoM.php" method="post">
+
+		<label for="fnome">Nome Completo*</label><br>
+		<input type="text" name="fnome" id="fnome" maxlength="80" required> <br><br>
+
+		<label for="fend">Endereço*</label><br>
+		<input type="text" name="fend" id="fend" maxlength="120" required> <br><br>
+
+		<label for="ftel">Telefone*</label> <br>
+		<input type="text" name="ftel" id="ftel" maxlength="11" placeholder="11 99999 9999" required> <br><br>
+
+
+		<label for="frg">RG*</label><br>
+		<input type="text" name="frg" id="frg" maxlength="9" placeholder="123456789"required> <br><br>
+
+		<label for="fcpf">CPF*</label><br>
+		<input type="text" name="fcpf" id="fcpf" maxlength="11" placeholder="12345678910" required><br><br>
+
+		<label for="fdt_nasc">Data de nascimento*</label><br>
+		<input type="date" name="fdt_nasc" id="fdt_nasc" required><br><br>
+
+		<input type="submit" value="Enviar Cadastro"><br>
+	</form>
+</body>
+</html>

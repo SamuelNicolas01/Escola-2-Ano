@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+
+<body>
+    <h1>DESAFIO</h1>
+
+    <form>
+        <label>Tente adivinhar o número</label>
+        <input type="number" placeholder="Digite um número" id="teste">
+        <button onclick="palpite()">Verifificar</button>
+    </form>
+
+    <p id="texto"></p>
+
+    <script>
+        let n = Math.floor(Math.random() * 10) + 1;
+        console.log(n);
+
+        function palpite() {
+            const mensagem = document.getElementById("texto");
+            const input = document.getElementById("teste");
+
+            const chute = Number(input.value);
+
+            if (chute < n) {
+                mensagem.innerHTML = "O número é menor";
+
+            } else if (chute > n) {
+                mensagem.innerHTML = "O número é maior";
+
+            } else {
+                mensagem.innerHTML = "Acertou miseravi " + n;
+                input.disabled = true;
+                document.querySelector("button").disabled = true;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

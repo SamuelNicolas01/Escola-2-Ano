@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EXERCICIO 1</title>
+</head>
+<body>
+
+	<div>
+		<img src="IMAGENS/gov-br-logo.png" height="50">
+	</div>
+	
+	<input type="number" id="i1" placeholder="Insira sua idade">
+	<button onclick="calculo()">Análise</button>
+	<p id="resultado"></p>
+
+	<script>
+		function calculo(){
+			let idade = Number(document.getElementById("i1").value);
+			
+			if((idade >= 18) && (idade < 65)){
+				document.getElementById("resultado").textContent = "OBRIGATÓRIO";
+			}
+			else{
+				document.getElementById("resultado").textContent = "NÃO OBRIGATÓRIO";
+			}
+		}
+	</script>
+</body>
+</html>

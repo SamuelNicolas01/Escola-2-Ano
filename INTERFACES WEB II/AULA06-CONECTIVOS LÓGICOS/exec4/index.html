@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>EXERCICIO 4</title>
+</head>
+<body>
+	<input type="radio" name="fila" id="ges">GESTANTE
+	<input type="radio" name="fila" id="ido">IDOSA
+	<input type="radio" name="fila" id="def">DEFICIENTE
+	<input type="radio" name="fila"id="nen">NENHUM
+
+	<button onclick="selecao()">Verifificar</button>
+
+	<p id="res"></p>
+
+	<script>
+
+		function selecao(){
+			if(
+			document.getElementById("ges").checked ||
+			document.getElementById("ido").checked ||
+			document.getElementById("def").checked 
+		){
+			document.getElementById("res").textContent = "FILA PRIORITÁRIA";
+		}
+		else{
+			document.getElementById("res").textContent = "SEM DIREITO";
+		}
+		}
+		
+	</script>
+</body>
+</html>

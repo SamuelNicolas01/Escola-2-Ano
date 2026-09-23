@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RECEPÇÃO ESCOLA</title>
+</head>
+<body>
+	<h1>CADASTRO ESCOLAR</h1>
+
+	<form action="main.php" method="post">
+		<label for = "fnome">Nome</label>
+		<input type="text" name="fnome" id="fnome" maxlength="45" required> <br><br>
+
+		<label for = "fend">Endereço</label>
+		<input type="text" name = "fend" id="fnome" maxlength = "120" required> <br><br> 
+		
+		<label for="ftel">Telefone</label>
+		<input type="text" name="ftel" id="ftel" maxlength="11" placeholder="11 99999 9999" required><br><br> 
+
+		<label for="frg">RG</label>
+		<input type="text" name="frg" id="frg" maxlength="9" required><br><br> 
+
+		<label for="fcpf">CPF</label>
+		<input type="text" name="fcpf" id="fcpf" maxlength="11" required><br><br> 
+
+		<label for="fdt_nasc">Data de nascimento</label>
+		<input type="date" name="fdt_nasc" id="fdt_nasc" required><br><br> 
+
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>

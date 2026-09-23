@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>exercicio 2</title>
+    <script>
+        function Botão(){
+        var ano_atual = document.getElementById("atual").value;
+        var ano_nasc = document.getElementById("nasc").value;
+        var nome = document.getElementById("nome").value;
+
+        let idade
+
+        idade = ano_atual - ano_nasc;
+
+        alert(`Seu nome é ${nome}, o ano atual é ${ano_atual} e seu ano de nascimento é ${ano_nasc}, você tem ${idade} anos.`);
+        }
+    </script>
+</head>
+<body>
+        Digite o ano atual
+        <input type="text" id="atual">
+        <br/>
+        <br/>
+        Digite o seu ano de nascimento
+        <input type="text" id="nasc">
+        <br/>
+        <br/>
+        Digite o seu nome
+        <input type="text" id="nome">
+        <br/>
+        <br/>
+
+        <button type="button" onclick="Botão()" >
+            enviar
+        </button>
+
+</body>
+</html>

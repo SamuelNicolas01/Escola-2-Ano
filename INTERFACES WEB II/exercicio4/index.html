@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Gênio - ETEC Francisco Morato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="jogo">
+        <img id="imagem-genio" src="imagens/genio_inicio.png" alt="Gênio da Lâmpada">
+
+        <p id="texto-descritivo">Pense em um número, consegue adivinhar?!</p>
+
+        <input type="number" id="palpite" min="0" max="10" placeholder="0 a 10" autocomplete="off">
+
+        <div class="botoes">
+            <button type="button" id="btn-consigo" class="btn">Consigo!</button>
+            <button type="button" id="btn-desisto" class="btn">Desisto :/</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

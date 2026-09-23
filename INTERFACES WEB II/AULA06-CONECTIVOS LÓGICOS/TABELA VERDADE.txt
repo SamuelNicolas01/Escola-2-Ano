@@ -1,0 +1,112 @@
+PROPOSIÇÕES:
+EXPRESSÃO DE ONDE PODE-SE TIRAR VERDADE(V) OU FALSO (F)
+
+NÃO SÃO PROPOSIÇÕES:
+2+3 (?)
+A LUZ (?)
+
+SÃO PROPOSIÇÕES:
+2+3=15 (F)
+2+3=5 (V)
+A LUZ ESTÁ APAGADA (V)
+A LUZ ESTÁ ACESA (F)
+
+TABELA BASE:
+P
+V
+F
+
+TABELA BASE NEGAÇÃO:
+~P
+F
+V
+
+P=A PRIMEIRA CANETA É VERMELHA
+Q=A SEGUNDA CANETA É PRETA
+
+~P=A PRIMEIRA CANETA NÃO É VERMELHA
+~Q=A SEGUNDA CANETA NÃO É PRETA
+
+CONJUNÇÃO:
+E = SÓ É VERDADE QUANDO AS 2 CONDIÇÕES SÃO VERDADE
+
+P|Q|E 
+V|V | V
+V|F | F
+F|V | F
+F|F | F
+
+P|Q|E|~E
+V|V|V|F
+V|F|F|V
+F|V|F|V
+F|F|F|V
+
+OU = SÓ É FALSO QUANDO AS 2 CONDIÇÕES FOREM FALSAS
+
+P|Q|OU |~OU 
+V|V | V  |F
+V|F | V  |F
+F|V |V   |F
+F|F |F   |V
+
+
+EXEMPLO 1: EM UMA BALADA, SÓ PODE ENTRAR SE FOR MAIOR DE IDADE. SE FOR DO SEXO FEMININO, PAGA MEIA ENTRADA. CASO CONTRÁRIO, PAGA ENTRADA INTEIRA.
+
+	Ana sexo feminino 17 anos
+	Karina sexo feminino 18 anos
+	Rui sexo masculino 19 anos
+	Tadeu sexo masculino 15 anos
+
+	SEM APLICAR O OPERADOR &&
+	
+
+	se(idade>=18){
+		se(sexo=="feminino"){
+			escrever("Pode entrar pela metade do preço");		
+		}	
+	}
+	senão se (idade>=18){
+		se(sexo=="masculino"){
+			escrever("Pode entrar pagando inteira");
+		}
+	}senão{
+		escrever("Não pode entrar");
+	}
+
+	APLICANDO O OPERADOR &&
+	
+	se((idade>=18)&&(sexo=='feminino')){
+		escrever("Pode entrar pela metade do preço");
+	senão se((idade>=18)&&(sexo=='masculino')){
+		escrever("Pode entrar pagando inteira");
+	senão{
+		escrever("Não pode entrar");
+	}
+
+	
+	RESULTADOS:
+
+	Ana não entra
+	Karina entra, pagando metade
+	Rui entra, pagando inteira
+	Tadeu não entra
+
+EXEMPLO 2: SISTEMA DE VENDA. CONCEDER 10% DE DESCONTO SE FOR A PRIMEIRA COMPRA OU SE FOR CLIENTE ANTIGO COM CARTÃO DA LOJA.
+	
+	Ana primeira compra
+	Karina não é primeira compra e não possui cartão
+	Rui não é a primeira compra e possui o cartão
+	
+	se((compra=="primeira")||(cartaoLoja=="sim")){
+		escrever(Conceder 10% de desconto);
+	senão{
+		escrever("pagar valor integral");
+	}
+
+
+	RESULTADOS:
+
+	Ana vai ter desconto
+	Karina não vai ter desconto
+	Rui vai ter desconto
