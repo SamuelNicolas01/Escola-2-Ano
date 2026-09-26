@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EXEMPLOS ARRAYS</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<h2>EXEMPLOS ARRAYS</h2>
+
+	<h3>Mostrando valores dos arrays criados</h3>
+
+	<button type="button" onclick="mostrarArrays()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo1">A saída de cores1 é exibida aqui</p>
+	<p id="conteudo1b">A saída de cores2 é exibida aqui</p>
+	<hr/>
+
+	<h3>Concatenando valores dos arrays criados (concat)</h3>
+	<br/>
+	OBS.: Junta dois (ou mais) arrays em um só. Não altera os arrays originais. Retorna um novo.
+	<br/>
+	<br/> 
+
+	<button type="button"
+	onclick="concatenarArrays()">
+	Clique concatenar os valores</button>
+
+	<p id="conteudo2">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Procurando um elemento (indexOf)</h3>
+
+	<button type="button"
+	onclick="procurar()">
+	Clique aqui procurar a cor azul</button>
+
+	<p id="conteudo3">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Juntando em strings (join)</h3>
+	<br/>
+	OBS.: Transforma o array em uma string, unindo os elementos com um separador. Se você não passar nenhum separador, o padrão é ,.
+	<br/>
+	<br/>
+
+	<button type="button"
+	onclick="juntarEmString()">
+	Clique aqui juntar em string os valores</button>
+
+	<p id="conteudo4">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Inserindo um valor no final do cores1 (push)</h3>
+
+	<button type="button"
+	onclick="inserirCor()">
+	Clique aqui para ver a alteração</button>
+
+	<p id="conteudo5">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Removendo o último valor do cores2 (pop)</h3>
+
+	<button type="button"
+	onclick="removerCor()">
+	Clique aqui para ver a alteração</button>
+
+	<p id="conteudo6">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Inserindo um valor no início do array cores1 (unshift)</h3>
+
+	<button type="button"
+	onclick="inserirCorInicio()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo7">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Removendo o primeiro valor do array cores1 (shift)</h3>
+
+	<button type="button"
+	onclick="removePrimeiro()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo8">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Invertendo a ordem do array cores2 (reverse)</h3>
+
+	<button type="button"
+	onclick="inverterCores2()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo9">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Ordenando em ordem crescente o array cores1(sort)</h3>
+
+	<button type="button"
+	onclick="ordemCrescente()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo10">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Convertendo em string (toString) o array cores1</h3>
+	OBS.: Também transforma o array em string, mas sempre usa vírgula como separador.
+	<br/>
+	<br/>
+
+	<button type="button"
+	onclick="paraString()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo11">A saída é exibida aqui</p>
+
+	<hr/>
+
+	<h3>Cortando os arrays em um ponto indicado (splice)</h3>
+
+	<button type="button"
+	onclick="cortarArrays()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo12a">A saída é exibida aqui</p>
+	<p id="conteudo12b">A saída é exibida aqui</p>
+	<hr/>
+
+	<h3>Procurando um valor para excluir (indexof e splice)</h3>
+
+	<button type="button"
+	onclick="procurarParaApagar()">
+	Clique aqui para ver os valores</button>
+
+	<p id="conteudo13">A saída é exibida aqui</p>
+	<hr/>
+
+
+	<script type="text/javascript">
+		//PODE-SE DECLARAR E PREENCHER LINHA A LINHA
+		let cores1 = new Array();
+		cores1[0] = "vermelho";
+		cores1[1] = "preto";
+		cores1[2] = "azul";
+		cores1[3] = "amarelo";
+		cores1[4] = "rosa";
+
+		//PODE-SE DECLARAR E JÁ PREENCHER NA DECLARAÇÃO
+		let cores2 = ["marrom","cinza","roxo", "laranja","branco"];
+
+		function mostrarArrays(){
+			let valores1="";
+			for(let i=0;i<=4;i++){
+				valores1=valores1+cores1[i]+"<br/>";
+			}
+
+			document.getElementById('conteudo1')
+				.innerHTML = valores1+"<br/>";
+
+			let valores2="";
+			for(let i=0;i<=4;i++){
+				valores2=valores2+cores2[i]+"<br/>";
+			}
+
+			document.getElementById('conteudo1b')
+				.innerHTML = valores2+"<br/>";
+
+		}
+
+		function concatenarArrays(){
+			let juntar = cores1.concat(cores2); 
+			document.getElementById('conteudo2')
+				.innerHTML = juntar+"<br/>";
+		}
+
+		function procurar(){
+			let posicao = cores1.indexOf("azul");
+			document.getElementById('conteudo3')
+				.innerHTML = "A cor azul está na posição: "+ posicao + "<br/>";
+		}
+
+		function juntarEmString(){
+			let juntar = cores1.join("-");
+			document.getElementById('conteudo4')
+				.innerHTML = "O resultado da string é: "+ juntar + "<br/>";
+		}
+
+		function inserirCor(){
+			cores1.push("verde"); 
+			document.getElementById('conteudo5')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+		}
+
+		function removerCor(){
+			cores2.pop(); 
+			document.getElementById('conteudo6')
+				.innerHTML = "A lista de cores agora é: "+ cores2 + "<br/>";
+		}
+
+		function inserirCorInicio(){
+			cores1.unshift("branco"); 
+			document.getElementById('conteudo7')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+		}
+
+		function removePrimeiro(){
+			cores1.shift(); 
+			document.getElementById('conteudo8')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+		}
+
+		function inverterCores2(){
+			cores2.reverse(); 
+			document.getElementById('conteudo9')
+				.innerHTML = "A lista de cores agora é: "+ cores2 + "<br/>";
+		}
+
+		function ordemCrescente(){
+			cores1.sort(); 
+			document.getElementById('conteudo10')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+		}
+
+		function paraString(){
+			cores1.toString(); 
+			document.getElementById('conteudo11')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+		}
+
+		function cortarArrays(){
+			//Remove 4 elementos a partir do índice 2
+			cores1.splice(2,4); 
+			document.getElementById('conteudo12a')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+			//Remove 1 elemento a partir do índice 2
+			cores2.splice(2,1); 
+			document.getElementById('conteudo12b')
+				.innerHTML = "A lista de cores agora é: "+ cores2 + "<br/>";
+		}
+
+		function procurarParaApagar(){
+			//Receber o valor com prompt
+			let palavra = prompt("Qual cor deseja apagar?");
+
+			//Procurando o valor informado
+			let posicao = cores1.indexOf(palavra);
+			
+			//Apagando
+			cores1.splice(posicao,1);
+
+			//Mostrando
+			document.getElementById('conteudo13')
+				.innerHTML = "A lista de cores agora é: "+ cores1 + "<br/>";
+		}
+	</script>
+
+
+</body>
+</html>

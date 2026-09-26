@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Dados</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="text" placeholder="Digite o nome do aluno:" id="nome1">
+        <input type="text" placeholder="Digite o curso:" id="curso1">
+        <input type="number" placeholder="Digite a idade:" id="idade1"><br><br>
+
+        <button type="button" onclick="cadastrar()">Cadastrar Manual</button>
+        <button type="button" onclick="imprimir()">Imprimir</button>
+    </form>
+
+    <p id="exibir1">OS DADOS SERÃO EXIBIDOS AQUI</p>
+
+
+    <form>
+        <input type="text" placeholder="Digite o nome do aluno:" id="procurar">
+        <button type="button" onclick="pesquisar()">Pesquisar</button>
+        <button type="button" onclick="excluir()">Excluir</button>
+    </form>
+
+    <script>
+        let nomes = [];
+        let idades = [];
+        let cursos = [];
+
+        function cadastrar() {
+            let nome = document.getElementById("nome1").value;
+            let curso = document.getElementById("curso1").value;
+            let idade = Number(document.getElementById("idade1").value);
+
+            nomes.push(nome);
+            idades.push(idade);
+            cursos.push(curso);
+
+            console.log(nomes);
+            console.log(idades);
+            console.log(cursos);
+
+            document.getElementById("nome1").value = "";
+            document.getElementById("curso1").value = "";
+            document.getElementById("idade1").value = "";
+        }
+
+        function imprimir() {
+            let valores1 = "";
+
+            for (let i = 0; i < nomes.length; i++) {
+                valores1 += "Nome: " + nomes[i] + "<br>";
+                valores1 += "Curso: " + cursos[i] + "<br>";
+                valores1 += "Idade: " + idades[i] + "<br><br>";
+            }
+
+            document.getElementById("exibir1").innerHTML = valores1;
+        }
+
+        function pesquisar() {
+            let nomeBusca = document.getElementById("procurar").value;
+            let posicao = nomes.indexOf(nomeBusca);
+
+            if (posicao !== -1) {
+                document.getElementById('exibir1').innerHTML = "Aluno encontrado na posição " + posicao + "<br/>" +
+                    "Nome: " + nomes[posicao] + "<br/>" +
+                    "Curso: " + cursos[posicao] + "<br/>" +
+                    "Idade: " + idades[posicao];
+            } else {
+                document.getElementById('exibir1').innerHTML = "Aluno não encontrado";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
