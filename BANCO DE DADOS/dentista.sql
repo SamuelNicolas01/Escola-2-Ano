@@ -198,29 +198,36 @@ insert into consulta(idcliente, cfo, dt_consulta, hora) values
 (11, 3895, '2024-10-30', '10:00')
 ;
 
-/* 1 - Quais são as especialidades dos dentistas ? */
-select nome,tipo
-from dentista
-inner join especialidade
+/* 1 - Quais são as especialidades dos dentistas?*/
+select nome, tipo from dentista inner join especialidade
 on dentista.idespec = especialidade.idespec
 order by nome;
 
-/* 2 - Quantos dentistas de cada especialidade há cadastro no banco de dados? */
-select tipo,count(*) from dentista group by especialidade
-inner join especialidade on dentista.idespec = especialidade.idespec
+/*
+asc para ordem alfabetica/crescente
+desc para ordem inversa
+*/
+
+/* 2 - Quantos dentistas de cada especialidade há cadastrado no banco de dados?*/ 
+select tipo, count(*) from dentista inner join especialidade
+on dentista.idespec = especialidade.idespec
 group by tipo;
 
-/* 3 - Quais são os clientes agendados para a Dra. Beatriz? */
-select cliente.nome, dentista.nome, dt_consulta, hora 
-from dentista
-inner join consulta on dentista.cfo = consulta.cfo
-inner join cliente on consulta.idcliente = cliente.idcliente
-where dentista.nome like "%Beatriz%";
-
-/* 4 - Quais as consultas agendadas para o Dr. Moacir e para a Dra. Solange? */
-select dentista.nome from dentista where dentista.nome like "%Moacrir%" & "%Solange%";
-
-/* 5 - Quais os pacientes passarão em consulta com um especialsta em ortodontia ou endodontia? */
+/* 3 - Quais são os clientes agendados para a dra Beatriz?*/
+select cliente.nome from cliente inner join consulta
+on 	cliente.idcliente = consulta.idcliente inner join dentista
+on consulta.cfo = dentista.cfo
+where dentista.nome = "Beatriz Livramento de Jesus";
 
 
+/* 4 - Quais as consultas agendadas para o dr. Moacir e para a dra. Solange?*/
+select dentista.nome, dt_consulta from consulta inner join dentista
+on consulta.cfo = dentista.cfo
+where dentista.nome like "%Moacir%" or dentista.nome like "%Solange%";
 
+/* 5 - Quais pacientes passarão em consulta com um especialista em ortodontia ou endodontia?*/
+select cliente.nome, especialidade.tipo from cliente inner join consulta
+on cliente.idcliente = consulta.idcliente inner join dentista
+on consulta.cfo = dentista.cfo inner join especialidade
+on dentista.idespec = especialidade.idespec
+where especialidade.tipo = "Endodontia" or especialidade.tipo = "Ortodontia";
