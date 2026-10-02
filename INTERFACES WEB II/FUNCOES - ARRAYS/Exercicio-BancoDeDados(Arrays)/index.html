@@ -15,6 +15,7 @@
         <input type="number" placeholder="Digite a idade:" id="idade1"><br><br>
 
         <button type="button" onclick="cadastrar()">Cadastrar Manual</button>
+        <button type="button" onclick="gerar()">Gerar Cadastro</button>
         <button type="button" onclick="imprimir()">Imprimir</button>
     </form>
 
@@ -50,6 +51,12 @@
             document.getElementById("idade1").value = "";
         }
 
+        function gerar(){
+            nomes.unshift("Samuel","Pedro","Bolsonaro");
+			document.getElementById('exibir1')
+				.innerHTML = "A lista de alunos agora é: "+ nomes + "<br/>";
+        }
+
         function imprimir() {
             let valores1 = "";
 
@@ -76,6 +83,19 @@
             }
         }
 
+        function excluir() {
+            //Receber o valor com prompt
+            let nomeBusca = document.getElementById("procurar").value;
+            //Procurando o valor informado
+            let posicao = nomes.indexOf(nomeBusca);
+
+            //Apagando
+            nomes.splice(posicao, 1);
+
+            //Mostrando
+            document.getElementById('exibir1')
+                .innerHTML = "A lista agora é: " + nomes + "<br/>";
+        }
     </script>
 
 </body>

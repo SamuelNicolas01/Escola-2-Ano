@@ -231,3 +231,75 @@ on cliente.idcliente = consulta.idcliente inner join dentista
 on consulta.cfo = dentista.cfo inner join especialidade
 on dentista.idespec = especialidade.idespec
 where especialidade.tipo = "Endodontia" or especialidade.tipo = "Ortodontia";
+
+/* 6 - Alterar o nome da cliente Samira Munhoz da 
+Silva para Samira Munhoz de Andrade*/
+select nome,idcliente 
+from cliente
+where nome = 'Samira Munhoz da Silva';
+
+update cliente
+set nome = 'Samira Munhoz de Andrade'
+where idcliente = 3 
+;
+/* 7 - Alterar o telefone do Marcelo Sinval Moreira 
+para 11987234785*/
+select nome,idcliente,tel
+from cliente
+where nome = 'Marcelo Sinval Moreira';
+
+update cliente
+set tel = '11987234785'
+where idcliente = 6 ;
+/* 8 - Alterar a data de nascimento da cliente Magda 
+para 27/10/2001*/
+select nome,idcliente,dt_nasc
+from cliente
+where nome like '%Magda%';
+
+update cliente
+set dt_nasc = '2001-10-27'
+where idcliente = 19;
+
+/* 9 - Alterar a especialidade do dr.Bruno para 
+Harmonização orofacial*/
+select nome,idespec,cfo
+from dentista
+where nome like '%Bruno%';
+
+select tipo,idespec from especialidade
+where tipo like '%Harmonização%';
+
+update dentista
+set idespec = 6
+where cfo =  1619;
+
+/* 10- Marcar uma consulta para a cliente Jaqueline 
+Manoela Silva Santana com o dr.Bruno em 19/10/2024 
+às 13:30 */
+select nome,idcliente 
+from cliente
+where nome like '%Jaqueline%';
+
+select * from consulta
+where idcliente = 28;
+
+insert into consulta(idcliente, cfo,dt_consulta, hora) values
+(26, 1619, '2024-10-19', '13:30');
+
+/* 11- Alterar o telefone da Camila de Souza Aguiar 
+para 11985848382 e marcar uma consulta para ela com 
+o dr. Bruno para 20/10/2024 Às 09:00*/ 
+select nome,idcliente,tel
+from cliente
+where nome like '%Camila de Souza%';
+
+update cliente
+set tel = '11985848382'
+where idcliente = 28 ;
+
+insert into consulta(idcliente, cfo,dt_consulta, hora) values
+(28, 1619, '2024-10-29', '09:00');
+
+select * from consulta
+where idcliente = 28;
