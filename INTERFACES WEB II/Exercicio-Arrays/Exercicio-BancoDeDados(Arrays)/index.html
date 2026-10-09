@@ -37,7 +37,9 @@
             let nome = document.getElementById("nome1").value;
             let curso = document.getElementById("curso1").value;
             let idade = Number(document.getElementById("idade1").value);
-
+            if(nome <= 0 || curso <= 0 || idade <=0){
+                document.getElementById("exibir1").innerHTML = "Um valor está vazio!";
+            }else{
             nomes.push(nome);
             idades.push(idade);
             cursos.push(curso);
@@ -49,12 +51,18 @@
             document.getElementById("nome1").value = "";
             document.getElementById("curso1").value = "";
             document.getElementById("idade1").value = "";
+            document.getElementById('exibir1'); innerHTML = "Um valor está vazio"
+            }
         }
 
-        function gerar(){
-            nomes.unshift("Samuel","Pedro","Bolsonaro");
-			document.getElementById('exibir1')
-				.innerHTML = "A lista de alunos agora é: "+ nomes + "<br/>";
+        function gerar() {
+            nomes.unshift("Samuel", "Pedro", "Jair", "Luis");
+            cursos.unshift("Adm", "Info", "Log", "Mkt")
+            idades.unshift("20", "21", "71", "45")
+            document.getElementById('exibir1').innerHTML =
+                "A lista de alunos agora é: " + nomes +
+                "<br> Cursos: " + cursos +
+                "<br> Idades: " + idades + "<br/>";
         }
 
         function imprimir() {
@@ -74,7 +82,7 @@
             let posicao = nomes.indexOf(nomeBusca);
 
             if (posicao !== -1) {
-                document.getElementById('exibir1').innerHTML = "Aluno encontrado na posição " + posicao + "<br/>" +
+                document.getElementById('exibir1').innerHTML = "Aluno encontrado na posição  <br/>" +
                     "Nome: " + nomes[posicao] + "<br/>" +
                     "Curso: " + cursos[posicao] + "<br/>" +
                     "Idade: " + idades[posicao];
@@ -88,13 +96,16 @@
             let nomeBusca = document.getElementById("procurar").value;
             //Procurando o valor informado
             let posicao = nomes.indexOf(nomeBusca);
-
+            if (posicao === -1)
+                document.getElementById("exibir1").innerHTML = "Impossivel excluir aluno inexistente";
+            else{
             //Apagando
-            nomes.splice(posicao, 1);
+            nomes.splice(posicao);
 
             //Mostrando
             document.getElementById('exibir1')
                 .innerHTML = "A lista agora é: " + nomes + "<br/>";
+            }
         }
     </script>
 
