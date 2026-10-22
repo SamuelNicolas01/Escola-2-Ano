@@ -100,7 +100,10 @@
                 document.getElementById("exibir1").innerHTML = "Impossivel excluir aluno inexistente";
             else{
             //Apagando
-            nomes.splice(posicao);
+            // Remove somente o aluno encontrado e os dados correspondentes.
+            nomes.splice(posicao, 1);
+            cursos.splice(posicao, 1);
+            idades.splice(posicao, 1);
 
             //Mostrando
             document.getElementById('exibir1')
