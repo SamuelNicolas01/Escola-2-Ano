@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Dados</title>
+</head>
+
+<body>
+
+    <form>
+        <input type="text" placeholder="Digite o nome do aluno:" id="nome1">
+        <input type="text" placeholder="Digite o curso:" id="curso1">
+        <input type="number" placeholder="Digite a idade:" id="idade1"><br><br>
+
+        <button type="button" onclick="cadastrar()">Cadastrar Manual</button>
+        <button type="button" onclick="gerar()">Gerar Cadastro</button>
+        <button type="button" onclick="imprimir()">Imprimir</button>
+    </form>
+
+    <p id="exibir1">OS DADOS SERÃO EXIBIDOS AQUI</p>
+
+    <form>
+        <input type="text" placeholder="Digite o nome do aluno:" id="procurar">
+        <button type="button" onclick="pesquisar()">Pesquisar</button>
+        <button type="button" onclick="excluir()">Excluir</button>
+    </form>
+
+    <script>
+
+        let alunos = [];
+
+        function cadastrar() {
+
+            let nome = document.getElementById("nome1").value;
+            let curso = document.getElementById("curso1").value;
+            let idade = Number(document.getElementById("idade1").value);
+
+            if (nome.trim() === "" || curso.trim() === "" || idade <= 0) {
+
+                document.getElementById("exibir1").innerHTML = "Um valor está vazio ou inválido!";
+
+            } else {
+
+                alunos.push([nome, curso, idade]);
+
+                console.log(alunos);
+
+                document.getElementById("nome1").value = "";
+                document.getElementById("curso1").value = "";
+                document.getElementById("idade1").value = "";
+
+                document.getElementById("exibir1").innerHTML = "Aluno cadastrado com sucesso!";
+            }
+        }
+
+        function gerar() {
+
+            alunos.unshift(
+                ["Samuel", "Adm", 20],
+                ["Pedro", "Info", 21],
+                ["Jair", "Log", 71],
+                ["Luis", "Mkt", 45]
+            );
+
+            document.getElementById("exibir1").innerHTML = "Cadastros gerados com sucesso!";
+        }
+
+        function imprimir() {
+
+            let valores1 = "";
+
+            for (let i = 0; i < alunos.length; i++) {
+
+            valores1 += "Nome: " + alunos[i][0] + "<br>";
+            valores1 += "Curso: " + alunos[i][1] + "<br>";
+            valores1 += "Idade: " + alunos[i][2] + "<br><br>";
+
+            }
+
+            document.getElementById("exibir1").innerHTML = valores1;
+        }
+
+        function pesquisar() {
+
+            let nomeBusca = document.getElementById("procurar").value;
+
+            let posicao = alunos.findIndex(
+                aluno => aluno[0].toLowerCase() === nomeBusca.trim().toLowerCase()
+            );
+
+            if (posicao !== -1) {
+
+                document.getElementById("exibir1").innerHTML =
+                    "Aluno encontrado na posição: " + posicao + "<br>" +
+                    "Nome: " + alunos[posicao][0] + "<br>" +
+                    "Curso: " + alunos[posicao][1] + "<br>" +
+                    "Idade: " + alunos[posicao][2];
+
+            } else {
+
+                document.getElementById("exibir1").innerHTML = "Aluno não encontrado";
+
+            }
+        }
+
+        function excluir() {
+
+            let nomeBusca = document.getElementById("procurar").value;
+
+            let posicao = alunos.findIndex(
+                aluno => aluno[0].toLowerCase() === nomeBusca.trim().toLowerCase()
+            );
+
+            if (posicao === -1) {
+
+                document.getElementById("exibir1").innerHTML = "Impossível excluir aluno inexistente";
+
+            } else {
+
+                alunos.splice(posicao, 1);
+
+                document.getElementById("exibir1").innerHTML = "Aluno excluído com sucesso!";
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>
